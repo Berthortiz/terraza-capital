@@ -1,0 +1,47 @@
+---
+import { resolve } from "node:path";
+import { readFileSync } from "node:fs";
+import TarjetaPropiedad from "./TarjetaPropiedad.astro";
+
+/* Única fuente de la verdad: public/data/propiedades.json */
+const rutaJson = resolve(process.cwd(), "public/data/propiedades.json");
+const { propiedades } = JSON.parse(readFileSync(rutaJson, "utf-8"));
+
+const destacadas = propiedades.slice(0, 3);
+---
+
+<section id="destacadas" class="bg-fondo-alt w-full body-font py-16 lg:py-24">
+    <div class="mx-auto lg:max-w-7xl px-6 md:px-(--padding-all-web) font-sans">
+        <div
+            class="mb-10 flex flex-col gap-4 md:flex-row md:items-end md:justify-between"
+        >
+            <div class="flex flex-col gap-2">
+                <span
+                    class="text-sm uppercase font-semibold tracking-widest text-(--color-primario)"
+                    >Nuestras propiedades</span
+                >
+                <h2
+                    class="font-titulos text-3xl md:text-4xl font-bold text-ink"
+                >
+                    Propiedades destacadas
+                </h2>
+            </div>
+
+            <a
+                href="#"
+                class="inline-flex items-center gap-1 text-sm font-semibold text-(--color-primario) transition-colors hover:text-(--color-primario-oscuro)"
+            >
+                Ver todas las propiedades
+                <span aria-hidden="true">→</span>
+            </a>
+        </div>
+
+        <div class="grid grid-cols-1 gap-6 md:grid-cols-3 md:gap-8">
+            {
+                destacadas.map((propiedad) => (
+                    <TarjetaPropiedad propiedad={propiedad} />
+                ))
+            }
+        </div>
+    </div>
+</section>

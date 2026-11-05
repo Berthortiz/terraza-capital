@@ -1,0 +1,242 @@
+{
+  "propiedades": [
+    {
+      "id": "PROP-0001",
+      "nombre_corto": "Casa Residencial",
+      "titulo": "Casa de 3 recámaras en zona residencial",
+      "descripcion": "Casa de dos niveles con jardín, cocina integral y cochera techada.",
+      "operacion": "venta",
+      "tipo_propiedad": "casa",
+      "estado_publicacion": "disponible",
+      "precio": {
+        "monto": 2850000,
+        "moneda": "MXN",
+        "mantenimiento_mensual": 0,
+        "negociable": true
+      },
+      "ubicacion": {
+        "calle": "Av. Principal 123",
+        "colonia": "Centro",
+        "ciudad": "Coatzacoalcos",
+        "estado": "Veracruz",
+        "codigo_postal": "96400",
+        "pais": "México",
+        "coordenadas": {
+          "latitud": 18.15,
+          "longitud": -94.42
+        }
+      },
+      "caracteristicas": {
+        "superficie_terreno_m2": 160,
+        "superficie_construccion_m2": 140,
+        "recamaras": 3,
+        "banos_completos": 2,
+        "medios_banos": 1,
+        "estacionamientos": 2,
+        "niveles": 2,
+        "antiguedad_anios": 5,
+        "amueblado": false
+      },
+      "amenidades": [
+        "jardín",
+        "cocina integral",
+        "cuarto de servicio",
+        "seguridad 24 horas"
+      ],
+      "servicios": {
+        "agua": true,
+        "luz": true,
+        "gas": true,
+        "internet": true,
+        "drenaje": true
+      },
+      "documentacion": {
+        "tipo_propiedad_legal": "escritura",
+        "libre_de_gravamen": true,
+        "acepta_credito": [
+          "Infonavit",
+          "Bancario"
+        ]
+      },
+      "multimedia": {
+        "imagen_principal": "/images/propiedades/PROP-0001/principal.jpg",
+        "imagenes": [
+          "/images/propiedades/PROP-0001/1.jpg",
+          "/images/propiedades/PROP-0001/2.jpg",
+          "/images/propiedades/PROP-0001/3.jpg",
+          "/images/propiedades/PROP-0001/4.jpg"
+        ],
+        "video_url": null,
+        "tour_virtual_url": null
+      },
+      "contacto": {
+        "nombre": "Juan Pérez",
+        "telefono": "+52 921 000 0000",
+        "whatsapp": "+52 921 000 0000",
+        "email": "contacto@ejemplo.com",
+        "agencia": "Inmobiliaria Ejemplo"
+      },
+      "fechas": {
+        "publicado": "2026-11-04",
+        "actualizado": "2026-11-04"
+      }
+    },
+    {
+      "id": "PROP-0002",
+      "nombre_corto": "Depto Costa",
+      "titulo": "Departamento amueblado de 2 recámaras en renta",
+      "descripcion": "Departamento luminoso y moderno, completamente amueblado, a minutos de la costa y zona comercial.",
+      "operacion": "renta",
+      "tipo_propiedad": "departamento",
+      "estado_publicacion": "disponible",
+      "precio": {
+        "monto": 14500,
+        "moneda": "MXN",
+        "mantenimiento_mensual": 850,
+        "negociable": false
+      },
+      "ubicacion": {
+        "calle": "Calle Mariano Abasolo 45, Int. 302",
+        "colonia": "Costa Sur",
+        "ciudad": "Coatzacoalcos",
+        "estado": "Veracruz",
+        "codigo_postal": "96510",
+        "pais": "México",
+        "coordenadas": {
+          "latitud": 18.133,
+          "longitud": -94.465
+        }
+      },
+      "caracteristicas": {
+        "superficie_terreno_m2": null,
+        "superficie_construccion_m2": 85,
+        "recamaras": 2,
+        "banos_completos": 1,
+        "medios_banos": 0,
+        "estacionamientos": 1,
+        "niveles": 1,
+        "antiguedad_anios": 2,
+        "amueblado": true
+      },
+      "amenidades": [
+        "alberca",
+        "gimnasio",
+        "terraza común",
+        "vigilancia"
+      ],
+      "servicios": {
+        "agua": true,
+        "luz": true,
+        "gas": true,
+        "internet": true,
+        "drenaje": true
+      },
+      "documentacion": {
+        "tipo_propiedad_legal": "escritura",
+        "libre_de_gravamen": true,
+        "acepta_credito": [
+          "Contado"
+        ]
+      },
+      "multimedia": {
+        "imagen_principal": "/images/propiedades/PROP-0002/principal.jpg",
+        "imagenes": [
+          "/images/propiedades/PROP-0002/1.jpg",
+          "/images/propiedades/PROP-0002/2.jpg",
+          "/images/propiedades/PROP-0002/3.jpg"
+        ],
+        "video_url": null,
+        "tour_virtual_url": null
+      },
+      "contacto": {
+        "nombre": "Juan Pérez",
+        "telefono": "+52 921 000 0000",
+        "whatsapp": "+52 921 000 0000",
+        "email": "contacto@ejemplo.com",
+        "agencia": "Inmobiliaria Ejemplo"
+      },
+      "fechas": {
+        "publicado": "2026-11-04",
+        "actualizado": "2026-11-04"
+      }
+    },
+    {
+      "id": "PROP-0003",
+      "nombre_corto": "Lote Roble",
+      "titulo": "Terreno plano de 500 m² en fraccionamiento privado",
+      "descripcion": "Terreno con uso de suelo habitacional dentro de fraccionamiento con portón de acceso y calles pavimentadas. Listo para construir.",
+      "operacion": "venta",
+      "tipo_propiedad": "terreno",
+      "estado_publicacion": "disponible",
+      "precio": {
+        "monto": 1200000,
+        "moneda": "MXN",
+        "mantenimiento_mensual": 0,
+        "negociable": true
+      },
+      "ubicacion": {
+        "calle": "Calle Paseo del Roble, Lote 12",
+        "colonia": "Fraccionamiento Vista Mar",
+        "ciudad": "Coatzacoalcos",
+        "estado": "Veracruz",
+        "codigo_postal": "96500",
+        "pais": "México",
+        "coordenadas": {
+          "latitud": 18.125,
+          "longitud": -94.39
+        }
+      },
+      "caracteristicas": {
+        "superficie_terreno_m2": 500,
+        "superficie_construccion_m2": null,
+        "recamaras": 0,
+        "banos_completos": 0,
+        "medios_banos": 0,
+        "estacionamientos": 0,
+        "niveles": null,
+        "antiguedad_anios": 0,
+        "amueblado": false
+      },
+      "amenidades": [
+        "portón de acceso",
+        "calles pavimentadas",
+        "predio cercado"
+      ],
+      "servicios": {
+        "agua": true,
+        "luz": true,
+        "gas": false,
+        "internet": false,
+        "drenaje": true
+      },
+      "documentacion": {
+        "tipo_propiedad_legal": "escritura",
+        "libre_de_gravamen": true,
+        "acepta_credito": [
+          "Infonavit",
+          "Contado"
+        ]
+      },
+      "multimedia": {
+        "imagen_principal": "/images/propiedades/PROP-0003/principal.jpg",
+        "imagenes": [
+          "/images/propiedades/PROP-0003/1.jpg",
+          "/images/propiedades/PROP-0003/2.jpg"
+        ],
+        "video_url": null,
+        "tour_virtual_url": null
+      },
+      "contacto": {
+        "nombre": "Juan Pérez",
+        "telefono": "+52 921 000 0000",
+        "whatsapp": "+52 921 000 0000",
+        "email": "contacto@ejemplo.com",
+        "agencia": "Inmobiliaria Ejemplo"
+      },
+      "fechas": {
+        "publicado": "2026-11-04",
+        "actualizado": "2026-11-04"
+      }
+    }
+  ]
+}

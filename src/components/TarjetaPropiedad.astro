@@ -1,0 +1,132 @@
+---
+import { Icon } from "astro-icon/components";
+
+interface Props {
+    propiedad: any;
+}
+
+const { propiedad } = Astro.props;
+
+const monedaFormato = new Intl.NumberFormat("es-MX", {
+    style: "currency",
+    currency: propiedad.precio.moneda,
+    maximumFractionDigits: 0,
+});
+
+const esRenta = propiedad.operacion === "renta";
+const precioTexto = monedaFormato.format(propiedad.precio.monto);
+
+/* Etiquetas legibles para el estado de publicación */
+const estados: Record<string, string> = {
+    disponible: "Disponible",
+    reservado: "Reservado",
+    rentado: "Rentado",
+    vendido: "Vendido",
+};
+
+const superficie =
+    propiedad.caracteristicas.superficie_terreno_m2 ??
+    propiedad.caracteristicas.superficie_construccion_m2;
+
+const banos =
+    propiedad.caracteristicas.banos_completos +
+    (propiedad.caracteristicas.medios_banos ? 0.5 : 0);
+
+/* Destacados con icono; solo se muestran si aplican (oculta 0 / null) */
+const destacados = [
+    superficie > 0 && { icono: "icon-area", texto: `${superficie} m²` },
+    banos > 0 && { icono: "icon-bath", texto: `${banos} baños` },
+    propiedad.caracteristicas.recamaras > 0 && {
+        icono: "icon-bed",
+        texto: `${propiedad.caracteristicas.recamaras} rec.`,
+    },
+    propiedad.caracteristicas.estacionamientos > 0 && {
+        icono: "icon-car",
+        texto: `${propiedad.caracteristicas.estacionamientos} estac.`,
+    },
+].filter(
+    (destacado): destacado is { icono: string; texto: string } =>
+        destacado !== false,
+);
+---
+
+<article
+    class="group flex h-full flex-col overflow-hidden rounded-base bg-white shadow-tarjeta transition-transform duration-300 hover:-translate-y-1"
+>
+    <div class="relative aspect-[4/3] overflow-hidden">
+        <img
+            src={propiedad.multimedia.imagen_principal}
+            alt={propiedad.titulo}
+            loading="lazy"
+            decoding="async"
+            class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+        />
+
+        <span
+            class="absolute top-3 left-3 rounded-full px-3 py-1 text-[.7em] font-semibold tracking-widest uppercase text-white bg-(--color-primario)"
+        >
+            {propiedad.operacion}
+        </span>
+
+        <span
+            class="absolute top-3 right-3 rounded-full bg-black/30 px-3 py-1 text-[.7em] font-medium text-white backdrop-blur-sm"
+        >
+            {
+                estados[propiedad.estado_publicacion] ??
+                    propiedad.estado_publicacion
+            }
+        </span>
+    </div>
+
+    <div class="flex flex-1 flex-col gap-3 p-5 font-texto">
+        <p class="text-xl font-bold text-(--color-primario)">
+            {precioTexto}<span class="text-sm font-normal text-texto-suave">
+                {esRenta ? " / mes" : ""}</span
+            >
+        </p>
+
+        <h3 class="font-titulos text-xl leading-snug font-bold text-ink">
+            {propiedad.nombre_corto}
+        </h3>
+
+        <p class="flex items-center gap-1.5 text-sm text-texto-suave">
+            <Icon name="icon-map-pin" size={16} />
+            {propiedad.ubicacion.colonia}, {propiedad.ubicacion.ciudad}
+        </p>
+
+        <ul
+            id="icons-realestate"
+            class="mt-1 flex flex-wrap items-center gap-x-4 gap-y-2 text-sm"
+        >
+            {
+                destacados.map(({ icono, texto }) => (
+                    <li class="flex items-center gap-1.5">
+                        <Icon name={icono} size={16} />
+                        {texto}
+                    </li>
+                ))
+            }
+        </ul>
+
+        <div
+            class="mt-auto flex items-center justify-between border-t border-borde pt-4 text-sm"
+        >
+            <span class="font-mono text-xs tracking-wide text-texto-suave">
+                {propiedad.id}
+            </span>
+            <a
+                href="#"
+                class="inline-flex items-center gap-1 font-semibold text-(--color-primario) transition-colors hover:text-(--color-primario-oscuro)"
+            >
+                Ver detalles
+                <span aria-hidden="true">→</span>
+            </a>
+        </div>
+    </div>
+</article>
+
+<style>
+    #icons-realestate li {
+        color: color-mix(in oklab, black 40%, transparent 20%);
+    }
+</style>

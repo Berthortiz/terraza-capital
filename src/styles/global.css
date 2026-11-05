@@ -1,0 +1,106 @@
+@import "tailwindcss";
+@import "@fontsource/poppins/400.css";
+@import "@fontsource/poppins/500.css";
+@import "@fontsource/poppins/600.css";
+@import "@fontsource/poppins/700.css";
+
+/* Fuerza a Tailwind a generar estas clases aunque aún no se usen */
+@source inline("bg-primario bg-primario-oscuro text-primario text-texto text-texto-suave text-secundario text-acento bg-fondo-alt bg-body text-ink text-brand font-titulos font-texto rounded-base shadow-tarjeta max-w-sitio border-borde bg-acento");
+
+/* Lora autoalojada (src/assets/fonts/Lora) — pesos: 400/500/600/700 */
+@font-face {
+	font-family: "Lora";
+	src: url("../assets/fonts/Lora/Lora-Regular.woff2") format("woff2");
+	font-weight: 400;
+	font-style: normal;
+	font-display: swap;
+}
+@font-face {
+	font-family: "Lora";
+	src: url("../assets/fonts/Lora/Lora-Medium.woff2") format("woff2");
+	font-weight: 500;
+	font-style: normal;
+	font-display: swap;
+}
+@font-face {
+	font-family: "Lora";
+	src: url("../assets/fonts/Lora/Lora-SemiBold.woff2") format("woff2");
+	font-weight: 600;
+	font-style: normal;
+	font-display: swap;
+}
+@font-face {
+	font-family: "Lora";
+	src: url("../assets/fonts/Lora/Lora-Bold.woff2") format("woff2");
+	font-weight: 700;
+	font-style: normal;
+	font-display: swap;
+}
+
+@theme {
+	/* Colores (por función) — valores de la marca del proyecto */
+	--color-primario: #BB8F58;
+	--color-primario-oscuro: #9F794B;
+	--color-secundario: #17181D;
+	--color-acento: #f59e0b;
+	--color-fondo-alt: #F8F7F5;
+	--color-texto: #17181D;
+	--color-texto-suave: #64748B;
+	--color-borde: #E2E8F0;
+
+	/* Tipografía — Lora mantida para títulos; texto autoalojado (Poppins ya existía vía @fontsource, sin dependencias nuevas) */
+	--font-titulos: "Lora", Georgia, serif;
+	--font-texto: "Poppins", system-ui, sans-serif;
+	--font-sans: var(--font-texto);
+	--font-serif: var(--font-titulos);
+
+	/* Alias legados que ya usan los componentes (sin duplicar valores) */
+	--color-brand: var(--color-primario);
+	--color-ink: var(--color-secundario);
+	--color-body: var(--color-fondo-alt);
+
+	/* Forma y layout */
+	--radius-base: 0.75rem;
+	--shadow-tarjeta: 0 4px 20px rgb(0 0 0 / 0.08);
+	--container-sitio: 68rem;
+}
+
+@layer base {
+	html {
+		@apply scroll-smooth;
+	}
+	body {
+		@apply font-texto text-texto bg-body leading-relaxed antialiased;
+	}
+	h1,
+	h2,
+	h3 {
+		@apply font-titulos text-secundario leading-tight;
+	}
+	h1 {
+		@apply text-4xl md:text-6xl;
+	}
+	h2 {
+		@apply text-2xl md:text-4xl;
+	}
+	h3 {
+		@apply text-xl md:text-2xl;
+	}
+	:focus-visible {
+		@apply outline-2 outline-offset-2 outline-primario;
+	}
+}
+
+:root {
+	--padding-all-web: 2rem;
+}
+
+.buttonReserve {
+	background-color: var(--color-brand);
+	color: #fff;
+	transition: filter 0.2s ease;
+}
+
+.buttonReserve:hover {
+	filter: brightness(1.1);
+}

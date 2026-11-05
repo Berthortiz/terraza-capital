@@ -1,0 +1,220 @@
+---
+import { Icon } from "astro-icon/components";
+// import { Picture } from "astro:assets";
+import Picture from "astro/components/Picture.astro";
+import ButtonPrimary from "./ButtonPrimary.astro";
+// import bgHeroImg from "../assets/bg-hero-2.jpg";
+// import bgHeroImg from "../assets/bg-hero.webp";
+import bgHeroImg from "../assets/bg-hero-7.jpg";
+// import bgMovilImg from "../assets/bg-movil.jpg";
+import bgMovilImg from "../assets/bg-movil-2.jpg";
+import GlassButton from "../components/GlassButton.astro";
+---
+
+<section
+    id="hero-mix"
+    class="relative flex min-h-svh w-full flex-col body-font pt-24 pb-10 lg:pt-9"
+>
+    <!-- Fondo con imagen y overlay -->
+    <!-- Imagen para móvil (se oculta desde 768px) -->
+    <div class="absolute inset-0 hidden max-md:block">
+        <Picture
+            src={bgMovilImg}
+            alt="Propiedad de lujo"
+            formats={["avif", "webp"]}
+            fallbackFormat="jpg"
+            widths={[480, 768]}
+            sizes="100vw"
+            quality={90}
+            fetchpriority="high"
+            decoding="async"
+            class="h-full bg-image w-full object-cover object-top"
+        />
+    </div>
+    <!-- Imagen para tablet, laptop y PC (se oculta en móvil) -->
+    <div class="absolute inset-0 max-md:hidden">
+        <Picture
+            src={bgHeroImg}
+            alt="Propiedad de lujo"
+            formats={["avif", "webp"]}
+            fallbackFormat="jpg"
+            widths={[768, 1280, 1920]}
+            sizes="100vw"
+            quality={90}
+            loading="lazy"
+            fetchpriority="high"
+            decoding="async"
+            class="h-full bg-image w-full object-cover object-top"
+        />
+    </div>
+
+    <div id="overlay" class="absolute inset-0"></div>
+
+    <!-- Halo claro detrás del header — posición y tamaño con las vars de abajo -->
+    <!-- <div
+        id="overlay-header"
+        class="absolute inset-x-0 top-0 pointer-events-none"
+    >
+    </div> -->
+
+    <div
+        id="itemhero"
+        class="relative z-10 mx-auto flex w-full flex-1 flex-col justify-start md:max-w-7xl md:items-center md:justify-center md:px-(--padding-all-web) lg:flex-row lg:justify-start"
+    >
+        <div
+            class="flex w-full flex-col items-start justify-center p-6 font-sans md:max-w-2xl md:text-left lg:max-w-none lg:w-3/7 lg:px-0"
+        >
+            <span
+                class="text-[.9em] md:text-[.9em] uppercase font-light text-ink"
+                >El Espacio que Siempre Soñaste</span
+            >
+            <span class="w-[60px] h-[2px] bg-(--color-primario) my-2"></span>
+
+            <h1
+                class="text-ink font-serif
+                 leading-10 md:leading-14 lg:leading-13 xl:leading-16
+                font-bold
+                text-3xl md:text-5xl lg:text-[2.7em] xl:text-[3.3em]
+                mb-4"
+            >
+                Propiedades de Prestigio y <span class="text-(--color-primario)"
+                    >Confort</span
+                >
+            </h1>
+            <p
+                class="mb-3 leading-relaxed text-ink md:text-[1em] font-light lg:text-[.8em]"
+            >
+                Espacio, luz natural y elegancia en un solo lugar. diseño
+                moderno con comodidades de primer nivel. ¿Te imaginas viviendo
+                aquí?
+            </p>
+            <div class="flex w-full flex-row flex-wrap items-center gap-3">
+                <GlassButton variant="primary" fontSize=".7em">
+                    <Icon name="whatsapp-solid" slot="before-icon" size={20} />
+                    Agendar cita
+                </GlassButton>
+                <GlassButton
+                    fontSize=".7em"
+                    variant="secondary"
+                    textColor="var(--color-ink)"
+                    href="#">Ver propiedades</GlassButton
+                >
+            </div>
+            <div
+                class="w-full flex flex-col md:flex-row justify-center gap-4 md:justify-start border-amber-50"
+            >
+            </div>
+        </div>
+    </div>
+</section>
+
+<style>
+    .bg-image {
+        filter: contrast(120%);
+    }
+
+    #arrow-down-id::before {
+        content: "Ver Portafolio";
+        text-align: center;
+        color: rgb(200, 200, 200);
+        position: absolute;
+        z-index: 3;
+        width: 200px;
+        /* height: 30px; */
+        /* background-color: red; */
+        transform: translateX(calc(-50% + 20px));
+        top: 0px;
+        left: 0;
+    }
+    #arrow-down-id {
+        margin-top: 30px;
+        position: relative;
+    }
+
+    #overlay {
+        /* backdrop-filter: blur(5px); */
+        /* background-color: color-mix(in oklab, var(--color-brand) 10%, #000 60%); */
+        background:
+            radial-gradient(
+                ellipse 80% 50% at 10% 60%,
+                rgba(254, 254, 254, 0.95) 0%,
+                rgba(255, 248, 248, 0) 70%
+            ),
+            radial-gradient(
+                ellipse 99% 60% at 30% 20%,
+                rgba(254, 254, 254, 0.55) 0%,
+                rgba(255, 248, 248, 0) 70%
+            );
+    }
+
+    #logo-bg {
+        opacity: 0.7;
+        position: relative;
+        /* border: 1px solid red; */
+        padding: 40px;
+    }
+
+    #container-logo-bg::before {
+        content: "";
+        /* border: 1px solid red; */
+
+        /* backdrop-filter: blur(5px); */
+
+        color: aqua;
+        position: absolute;
+        z-index: 10;
+    }
+
+    .hero {
+        --bg-transparent: 0.78;
+        /* linear-gradient(
+                rgba(0, 0, 0, var(--bg-transparent)),
+                rgba(0, 0, 0, var(--bg-transparent))
+            ) */
+        background-size: cover;
+        background-position: center;
+        height: 100vh;
+        display: flex;
+        /* align-items: center; */
+        justify-content: center;
+        /* color: black; */
+    }
+    /* 
+    .gradiente-title-hero {
+        background-image: linear-gradient(
+            to left,
+            #ffffff,
+            var(--grey-titanio)
+        );
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    } */
+
+    /* Estilos base para Móvil (Mobile-first) */
+
+    /* #overlay {
+        backdrop-filter: blur(8px);
+        background-color: color-mix(in oklab, var(--color-brand) 0%, #000 10%);
+    } */
+    /* Tablet (ancho mínimo de 768px) */
+    @media (min-width: 768px) {
+        #overlay {
+            backdrop-filter: blur(5px);
+            background-color: color-mix(
+                /* in oklab var(--color-brand) 10% #fff 5% */
+            );
+        }
+    }
+
+    /* PC / Laptop (ancho mínimo de 1024px) */
+    @media (min-width: 1024px) {
+        #overlay {
+            backdrop-filter: blur(0px);
+            /* background-color: color-mix(
+                in oklab,
+                var(--color-brand) 30%,
+                #000 0%
+            ); */
+        }
+    }
+</style>

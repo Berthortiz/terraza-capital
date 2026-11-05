@@ -1,0 +1,67 @@
+---
+import { Icon } from "astro-icon/components";
+import GlassButton from "./GlassButton.astro";
+import videoBg from "../assets/sec-video-bg.jpg";
+---
+
+<section
+    id="contacto"
+    aria-labelledby="contact-title"
+    class="w-full bg-fondo-alt px-6 py-16 md:py-24"
+>
+    <div
+        style={`background-image: linear-gradient(90deg, rgba(10, 10, 12, 0.94) 0%, rgba(10, 10, 12, 0.82) 45%, rgba(10, 10, 12, 0.35) 70%, rgba(10, 10, 12, 0.02) 100%), url('${videoBg.src}')`}
+        class="mx-auto grid max-w-7xl gap-10 rounded-base bg-cover bg-center bg-ink px-6 py-10 text-white shadow-tarjeta md:grid-cols-2 md:items-center md:gap-12 md:px-12 md:py-14"
+    >
+        <div class="flex flex-col items-start gap-5">
+            <span
+                class="text-sm font-semibold tracking-widest text-primario uppercase"
+            >
+                Estamos para ayudarte
+            </span>
+            <h2
+                id="contact-title"
+                class="font-titulos text-3xl leading-tight font-bold text-white md:text-5xl"
+            >
+                Encuentra el espacio <spam class="text-primario"
+                    >ideal para ti</spam
+                >
+            </h2>
+            <p class="max-w-[52ch] text-white/75">
+                Comprar una propiedad es más sencillo cuando conoces cada paso.
+                Reproduce el video y descubre cómo te acompañamos desde la
+                búsqueda hasta la firma.
+            </p>
+            <GlassButton
+                variant="primary"
+                fontSize=".7em"
+                backgroundColor="var(--color-primario)"
+            >
+                <Icon name="whatsapp-solid" slot="before-icon" size={20} />
+                Reserva
+            </GlassButton>
+        </div>
+
+        <div class="flex min-h-48 items-center justify-center">
+            <button
+                type="button"
+                aria-label="Reproducir video"
+                class="flex size-20 items-center justify-center rounded-full border border-white/10 bg-white/15 text-white backdrop-blur-sm transition hover:scale-105 hover:bg-white/25 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white"
+            >
+                <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24"
+                    fill="currentColor"
+                    class="ml-0 size-9"
+                    aria-hidden="true"
+                >
+                    <path
+                        d="M7.5 4.8a1 1 0 0 1 1.5-.86l11 6.35a1.98 1.98 0 0 1 0 3.42L9 20.06a1 1 0 0 1-1.5-.86V4.8Z"
+                    ></path>
+                </svg>
+            </button>
+        </div>
+    </div>
+</section>
+
+<style></style>
